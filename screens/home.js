@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, ScrollView, StyleSheet, FlatList } from 'react-native';
+import { View, ScrollView, StyleSheet, FlatList, Grid } from 'react-native';
 import PlayerListDisplay from '../partials/playerListDisplay';
+import GridDisplay from '../partials/grid';
 import playerData from '../data/playerTeams.json';
 
 const teams = [
@@ -100,13 +101,23 @@ export default function Home({ navigation }) {
 				grid[i][j] = teamPairs[pairName];
 			}
 		}
-		return grid;
+		const gridObject = {
+			x: indexesArray.slice(0, 3),
+			y: indexesArray.slice(3, 6),
+			grid: grid,
+		};
+		// TODO add a check to make sure that each set is valid
+		return gridObject;
 	};
-	const grid = generateGrid(teamPairs);
+	const [gridObject, setGridObject] = useState(generateGrid(teamPairs));
 
 	const x = 1;
 
-	return <View></View>;
+	return (
+		<View>
+			<GridDisplay gridObject={gridObject} />
+		</View>
+	);
 	/*  Old displays
 	<ScrollView style={styles.viewList}>
 		{players

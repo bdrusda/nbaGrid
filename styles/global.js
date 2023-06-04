@@ -29,4 +29,52 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 		paddingRight: 40,
 	},
+
+	grid: {
+		alignSelf: 'center',
+		width: 500,
+		height: 500,
+		margin: 50,
+		borderColor: 'black',
+		borderWidth: 1,
+	},
+	gridRow: {
+		flexDirection: 'row',
+		flex: 1,
+	},
+	gridTop: {
+		flex: 1,
+	},
+	gridBottom: {
+		flex: 3,
+	},
+	gridHeaderRow: {
+		flexDirection: 'row',
+		flex: 3,
+		backgroundColor: 'green',
+	},
+	gridHeaderColumn: {
+		flexDirection: 'column',
+		flex: 1,
+		backgroundColor: 'green',
+	},
+	gridSection: {
+		flex: 3,
+	},
+	gridPlaceHolder: {
+		flex: 1,
+		backgroundColor: 'blue',
+	},
+	gridSquare: {
+		flex: 1,
+		borderColor: 'black',
+		borderWidth: 1,
+	},
+	teamHeader: {
+		flex: 1,
+		borderColor: 'black',
+		borderWidth: 1,
+		textAlign: 'center',
+		justifyContent: 'center',
+	},
 });
