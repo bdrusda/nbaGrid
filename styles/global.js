@@ -51,19 +51,19 @@ export const styles = StyleSheet.create({
 	gridHeaderRow: {
 		flexDirection: 'row',
 		flex: 3,
-		backgroundColor: 'green',
+		backgroundColor: '#aaa',
 	},
 	gridHeaderColumn: {
 		flexDirection: 'column',
 		flex: 1,
-		backgroundColor: 'green',
+		backgroundColor: '#aaa',
 	},
 	gridSection: {
 		flex: 3,
 	},
 	gridPlaceHolder: {
 		flex: 1,
-		backgroundColor: 'blue',
+		backgroundColor: 'gray',
 	},
 	gridSquare: {
 		flex: 1,
