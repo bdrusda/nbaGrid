@@ -1,5 +1,5 @@
-import { styles } from '../styles/global';
 import { Text, View } from 'react-native';
+import { gridStyles } from '../styles/gridStyles';
 
 export default function GridHeader(props) {
 	const teamList = props.teamList;
@@ -8,8 +8,8 @@ export default function GridHeader(props) {
 		<View style={styling}>
 			{teamList.map((team) => {
 				return (
-					<View style={styles.teamHeader}>
-						<Text style={styles.teamName}>{team}</Text>
+					<View style={gridStyles.teamHeader}>
+						<Text style={gridStyles.teamName}>{team}</Text>
 					</View>
 				);
 			})}
