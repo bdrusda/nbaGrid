@@ -25,7 +25,7 @@ export default function Home({ navigation }) {
 			<TouchableOpacity
 				style={styles.generateButton}
 				onPress={() => {
-					setGridObject(generateGrid);
+					setGridObject(generateGrid(teamPairs));
 				}}>
 				<Text style={styles.generateButtonText}>Generate New Grid</Text>
 			</TouchableOpacity>

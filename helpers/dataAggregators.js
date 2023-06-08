@@ -1,4 +1,4 @@
-import { NBA_TEAMS } from '../constants/constants';
+import { NBA_TEAMS } from '../constants';
 
 export const moldPlayerData = (player) => {
 	return {
@@ -35,31 +35,40 @@ export const createTeamPairs = (players) => {
 };
 
 export const generateGrid = (teamPairs) => {
-	const indexes = new Set();
-	while (indexes.size < 6) {
-		const index = NBA_TEAMS[Math.floor(Math.random() * NBA_TEAMS.length)];
-		indexes.add(index);
-	}
-	const indexesArray = Array.from(indexes);
-	const grid = [
-		[-1, -1, -1],
-		[-1, -1, -1],
-		[-1, -1, -1],
-	];
-	for (let i = 0; i < 3; i++) {
-		for (let j = 0; j < 3; j++) {
-			const pairName = constructTeamPairName(
-				indexesArray[i],
-				indexesArray[j + 3]
-			);
-			grid[i][j] = teamPairs[pairName];
+	let gridObject;
+	while (true) {
+		let validGrid = true;
+		const indexes = new Set();
+		while (indexes.size < 6) {
+			const index = NBA_TEAMS[Math.floor(Math.random() * NBA_TEAMS.length)];
+			indexes.add(index);
 		}
+		const indexesArray = Array.from(indexes);
+		const grid = [
+			[-1, -1, -1],
+			[-1, -1, -1],
+			[-1, -1, -1],
+		];
+		for (let i = 0; i < 3; i++) {
+			for (let j = 0; j < 3; j++) {
+				const pairName = constructTeamPairName(
+					indexesArray[i],
+					indexesArray[j + 3]
+				);
+				grid[i][j] = teamPairs[pairName];
+				if (!teamPairs[pairName] || teamPairs[pairName].size < 5) {
+					validGrid = false;
+					break;
+				}
+			}
+		}
+		gridObject = {
+			x: indexesArray.slice(0, 3),
+			y: indexesArray.slice(3, 6),
+			grid: grid,
+		};
+
+		if (validGrid) break;
 	}
-	const gridObject = {
-		x: indexesArray.slice(0, 3),
-		y: indexesArray.slice(3, 6),
-		grid: grid,
-	};
-	// TODO add a check to make sure that each set is valid
 	return gridObject;
 };

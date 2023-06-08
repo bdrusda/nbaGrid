@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 export const main = '#1d428a';
 export const secondary = '#c8102e';
 export const white = '#fff';
+export const darkGray = '#121212';
 
 export const styles = StyleSheet.create({
 	container: {

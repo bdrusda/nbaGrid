@@ -1,3 +1,5 @@
+export const INPUT_PLAYER_NAME = true;
+
 export const NBA_TEAMS = [
 	'ATL',
 	'BKN',
